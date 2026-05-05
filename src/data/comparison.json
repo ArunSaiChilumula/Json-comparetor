@@ -1,0 +1,1448 @@
+{
+  "session_id": "1d0de032-54f7-4fde-91e7-60798784d1b7",
+  "created_at": "2026-04-27T07:09:42.915950+00:00",
+  "source_dir": "C:\\Users\\USER\\Downloads\\Anil_project_final\\Anil_project_final\\sessions\\llm_outputs",
+  "comparison": {
+    "winner_overall": "deepseek",
+    "winner_reason": "Deepseek provided the most comprehensive process flow with 10 detailed steps, including unique steps like 'Washing & Dyeing (Optional)' which were not present in other models. Its machinery list was extensive and included high-capacity machines, leading to a competitive total project cost of ₹123,150,000, which is significantly lower than GPT's ₹309,000,000 and Gemini's ₹43,419,000, while maintaining high operational efficiency.",
+    "llm_scores": {
+      "deepseek": {
+        "score": 85,
+        "breakdown": {
+          "process_flow_depth": 18,
+          "machinery_accuracy": 20,
+          "cost_realism": 17,
+          "materials_detail": 15,
+          "overall_completeness": 15
+        },
+        "strengths": [
+          "Comprehensive process flow",
+          "Detailed machinery specifications",
+          "Accurate cost estimation"
+        ],
+        "weaknesses": [
+          "Limited risk analysis",
+          "Less focus on sustainability"
+        ],
+        "notable_data_points": "Total project cost: ₹123,150,000"
+      },
+      "gpt": {
+        "score": 75,
+        "breakdown": {
+          "process_flow_depth": 16,
+          "machinery_accuracy": 15,
+          "cost_realism": 14,
+          "materials_detail": 15,
+          "overall_completeness": 15
+        },
+        "strengths": [
+          "Thorough material analysis",
+          "Detailed labor requirements",
+          "Good risk identification"
+        ],
+        "weaknesses": [
+          "Higher cost estimates",
+          "Less detailed machinery specifications"
+        ],
+        "notable_data_points": "Total project cost: ₹309,000,000"
+      },
+      "gemini": {
+        "score": 70,
+        "breakdown": {
+          "process_flow_depth": 14,
+          "machinery_accuracy": 14,
+          "cost_realism": 13,
+          "materials_detail": 14,
+          "overall_completeness": 15
+        },
+        "strengths": [
+          "Concise process flow",
+          "Good packaging details",
+          "Clear material costs"
+        ],
+        "weaknesses": [
+          "Limited machinery details",
+          "Lower depth in process flow"
+        ],
+        "notable_data_points": "Total project cost: ₹43,419,000"
+      }
+    },
+    "explainable_ai": {
+      "process_flow": {
+        "taken_from": "deepseek",
+        "reason": "Most detailed and comprehensive process flow with 10 steps.",
+        "gaps_filled_from": "gpt",
+        "gap_details": "Incorporated labor requirements and equipment used from GPT."
+      },
+      "machinery_list": {
+        "taken_from": "deepseek",
+        "reason": "Most extensive machinery list with detailed specifications.",
+        "gaps_filled_from": "gpt",
+        "gap_details": "Added some machinery specifications from GPT for completeness."
+      },
+      "cost_estimation": {
+        "taken_from": "deepseek",
+        "reason": "Most realistic cost estimation based on detailed breakdown.",
+        "gaps_filled_from": "gemini",
+        "gap_details": "Included some lower cost estimates from Gemini for certain categories."
+      },
+      "materials": {
+        "taken_from": "deepseek",
+        "reason": "Most comprehensive material list with detailed monthly requirements.",
+        "gaps_filled_from": "gpt",
+        "gap_details": "Incorporated additional materials from GPT for better coverage."
+      }
+    },
+    "combined_analysis": {
+      "process_flow": [
+        {
+          "step": 1,
+          "name": "Yarn Procurement & Storage",
+          "description": "Receiving and storing raw cotton yarn in a controlled environment.",
+          "duration": "Continuous",
+          "equipment_used": [
+            "Material Handling Trolleys"
+          ],
+          "labor_required": "2 Storekeepers",
+          "quality_checkpoint": "Visual inspection for moisture damage",
+          "source_model": "deepseek"
+        },
+        {
+          "step": 2,
+          "name": "Yarn Conditioning",
+          "description": "Passing yarn cones through a conditioning machine.",
+          "duration": "4-6 hours per batch",
+          "equipment_used": [
+            "Yarn Conditioning Machine"
+          ],
+          "labor_required": "1 Operator",
+          "quality_checkpoint": "Moisture content check",
+          "source_model": "deepseek"
+        },
+        {
+          "step": 3,
+          "name": "Knitting",
+          "description": "Using high-speed electronic knitting machines to form the sock tube.",
+          "duration": "2-3 minutes per pair",
+          "equipment_used": [
+            "Electronic Sock Knitting Machine"
+          ],
+          "labor_required": "1 Operator per 10 machines",
+          "quality_checkpoint": "Check for defects",
+          "source_model": "deepseek"
+        },
+        {
+          "step": 4,
+          "name": "Linking/Toe Closing",
+          "description": "Sewing the toe of the sock closed using a linking machine.",
+          "duration": "30-45 seconds per pair",
+          "equipment_used": [
+            "Linking Machine",
+            "Overlock Sewing Machine"
+          ],
+          "labor_required": "1 Operator per machine",
+          "quality_checkpoint": "Seam integrity check",
+          "source_model": "deepseek"
+        },
+        {
+          "step": 5,
+          "name": "Boarding & Setting",
+          "description": "Placing damp socks onto metal forms and passing through a steam tunnel.",
+          "duration": "5-7 minutes per batch",
+          "equipment_used": [
+            "Sock Boarding Machine"
+          ],
+          "labor_required": "2 Operators",
+          "quality_checkpoint": "Shape and size check",
+          "source_model": "deepseek"
+        },
+        {
+          "step": 6,
+          "name": "Washing & Dyeing (Optional)",
+          "description": "Batch dyeing in paddle dyeing machines.",
+          "duration": "1-2 hours per batch",
+          "equipment_used": [
+            "Paddle Dyeing Machine",
+            "Hydro Extractor"
+          ],
+          "labor_required": "3 Operators",
+          "quality_checkpoint": "Color consistency check",
+          "source_model": "deepseek"
+        },
+        {
+          "step": 7,
+          "name": "Drying",
+          "description": "Removing excess moisture after washing/dyeing.",
+          "duration": "20-30 minutes per batch",
+          "equipment_used": [
+            "Tumble Dryer"
+          ],
+          "labor_required": "1 Operator",
+          "quality_checkpoint": "Moisture content check",
+          "source_model": "deepseek"
+        },
+        {
+          "step": 8,
+          "name": "Pairing & Inspection",
+          "description": "Manual pairing of socks and visual inspection for defects.",
+          "duration": "10-15 seconds per pair",
+          "equipment_used": [
+            "Inspection Tables"
+          ],
+          "labor_required": "10 Quality Inspectors",
+          "quality_checkpoint": "Defect check",
+          "source_model": "deepseek"
+        },
+        {
+          "step": 9,
+          "name": "Tagging & Packaging",
+          "description": "Attaching price tags and packing socks.",
+          "duration": "10 seconds per pair",
+          "equipment_used": [
+            "Tagging Gun",
+            "Heat Sealer"
+          ],
+          "labor_required": "5 Packers",
+          "quality_checkpoint": "Packaging integrity check",
+          "source_model": "deepseek"
+        },
+        {
+          "step": 10,
+          "name": "Finished Goods Storage & Dispatch",
+          "description": "Storing packaged cartons in warehouse.",
+          "duration": "Continuous",
+          "equipment_used": [
+            "Pallet Jack",
+            "Weighing Scale"
+          ],
+          "labor_required": "3 Helpers",
+          "quality_checkpoint": "Inventory check",
+          "source_model": "deepseek"
+        }
+      ],
+      "machinery_list": [
+        {
+          "name": "Electronic Sock Knitting Machine (Single Cylinder, 4-inch, 200 Needle)",
+          "brand": "Lonati",
+          "purpose": "Knits the main body of the sock.",
+          "specifications": "Computerized, 4 feeders, Voltage: 415V, 3-phase.",
+          "capacity": "30-35 pairs per hour per machine",
+          "power_requirement": "1.5 kW (2 HP)",
+          "dimensions": "1.5m L x 0.8m W x 1.8m H",
+          "estimated_cost": "₹1,800,000",
+          "quantity_required": 30,
+          "maintenance_frequency": "Monthly",
+          "source_model": "deepseek"
+        },
+        {
+          "name": "Linking Machine (Automatic Toe Closer)",
+          "brand": "Jumberca",
+          "purpose": "Creates a seamless toe closure.",
+          "specifications": "Semi-automatic, Voltage: 220V, Single-phase.",
+          "capacity": "120 pairs per hour",
+          "power_requirement": "0.37 kW (0.5 HP)",
+          "dimensions": "1.2m L x 0.6m W x 1.5m H",
+          "estimated_cost": "₹550,000",
+          "quantity_required": 8,
+          "maintenance_frequency": "Monthly",
+          "source_model": "deepseek"
+        },
+        {
+          "name": "Sock Boarding & Setting Machine (Steam Tunnel Type)",
+          "brand": "Local manufacturer",
+          "purpose": "Shapes and sets socks to correct size using steam.",
+          "specifications": "Includes boiler, Voltage: 415V, 3-phase.",
+          "capacity": "150-200 pairs per hour",
+          "power_requirement": "9 kW (12 HP) including boiler",
+          "dimensions": "3m L x 1.2m W x 2m H",
+          "estimated_cost": "₹900,000",
+          "quantity_required": 2,
+          "maintenance_frequency": "Monthly",
+          "source_model": "deepseek"
+        },
+        {
+          "name": "Paddle Dyeing Machine (Stainless Steel, 50 kg capacity)",
+          "brand": "Local manufacturer",
+          "purpose": "For dyeing colored socks.",
+          "specifications": "Stainless steel body, motorized paddle.",
+          "capacity": "50 kg per batch",
+          "power_requirement": "3.7 kW (5 HP)",
+          "dimensions": "1.8m L x 1.8m W x 1.5m H",
+          "estimated_cost": "₹400,000",
+          "quantity_required": 2,
+          "maintenance_frequency": "Monthly",
+          "source_model": "deepseek"
+        },
+        {
+          "name": "Industrial Tumble Dryer (50 kg capacity)",
+          "brand": "Local manufacturer",
+          "purpose": "Drying socks after washing/dyeing.",
+          "specifications": "Stainless steel drum, gas/electric heating.",
+          "capacity": "50 kg per cycle",
+          "power_requirement": "6 kW (8 HP)",
+          "dimensions": "1.5m L x 1m W x 1.8m H",
+          "estimated_cost": "₹300,000",
+          "quantity_required": 2,
+          "maintenance_frequency": "Monthly",
+          "source_model": "deepseek"
+        },
+        {
+          "name": "Yarn Conditioning Machine",
+          "brand": "Local manufacturer",
+          "purpose": "Adds moisture to yarn to reduce breakage.",
+          "specifications": "Steam/humidification chamber.",
+          "capacity": "100 kg per batch",
+          "power_requirement": "2.2 kW (3 HP)",
+          "dimensions": "2m L x 1m W x 2m H",
+          "estimated_cost": "₹250,000",
+          "quantity_required": 1,
+          "maintenance_frequency": "Monthly",
+          "source_model": "deepseek"
+        },
+        {
+          "name": "Overlock Sewing Machine (5-thread)",
+          "brand": "Juki",
+          "purpose": "Alternative for toe closing.",
+          "specifications": "Industrial grade.",
+          "capacity": "60 pairs per hour",
+          "power_requirement": "0.25 kW",
+          "dimensions": "0.8m L x 0.5m W x 1.5m H",
+          "estimated_cost": "₹25,000",
+          "quantity_required": 5,
+          "maintenance_frequency": "Monthly",
+          "source_model": "deepseek"
+        },
+        {
+          "name": "Compressor (10 HP)",
+          "brand": "Local manufacturer",
+          "purpose": "Provides pneumatic power.",
+          "specifications": "Screw type, 500-liter receiver.",
+          "capacity": "NA",
+          "power_requirement": "7.5 kW (10 HP)",
+          "dimensions": "1.5m L x 0.8m W x 1.2m H",
+          "estimated_cost": "₹150,000",
+          "quantity_required": 1,
+          "maintenance_frequency": "Monthly",
+          "source_model": "deepseek"
+        },
+        {
+          "name": "DG Set (125 kVA)",
+          "brand": "Kirloskar",
+          "purpose": "Backup power for entire factory.",
+          "specifications": "Diesel-powered.",
+          "capacity": "NA",
+          "power_requirement": "NA",
+          "dimensions": "3m L x 1.2m W x 1.8m H",
+          "estimated_cost": "₹1,200,000",
+          "quantity_required": 1,
+          "maintenance_frequency": "Monthly",
+          "source_model": "deepseek"
+        }
+      ],
+      "materials": [
+        {
+          "name": "Combed Cotton Yarn (24s to 40s count)",
+          "purpose": "Primary raw material for sock body.",
+          "quantity_per_batch": "0.025 kg per pair",
+          "monthly_requirement": "75,000 kg",
+          "unit_cost": "₹300 per kg",
+          "monthly_cost": "₹22,500,000"
+        },
+        {
+          "name": "Nylon/Elastane Yarn (Lycra, 20/70 Denier)",
+          "purpose": "For cuff ribbing.",
+          "quantity_per_batch": "0.002 kg per pair",
+          "monthly_requirement": "6,000 kg",
+          "unit_cost": "₹600 per kg",
+          "monthly_cost": "₹3,600,000"
+        },
+        {
+          "name": "Dyes & Chemicals (Reactive Dyes, Softeners)",
+          "purpose": "For coloring socks.",
+          "quantity_per_batch": "Varies per color",
+          "monthly_requirement": "1,000 kg",
+          "unit_cost": "₹400 per kg",
+          "monthly_cost": "₹400,000"
+        },
+        {
+          "name": "Polybags (Retail Packaging)",
+          "purpose": "Primary packaging for retail pairs.",
+          "quantity_per_batch": "1 bag per pair",
+          "monthly_requirement": "2,500,000 pieces",
+          "unit_cost": "₹0.50 per piece",
+          "monthly_cost": "₹1,250,000"
+        },
+        {
+          "name": "Cartons (Corrugated Boxes for Shipping)",
+          "purpose": "Secondary packaging for bulk dispatch.",
+          "quantity_per_batch": "1 carton holds 100 pairs",
+          "monthly_requirement": "25,000 cartons",
+          "unit_cost": "₹30 per carton",
+          "monthly_cost": "₹750,000"
+        },
+        {
+          "name": "Tags & Labels (Woven/PVC)",
+          "purpose": "Branding and size/price information.",
+          "quantity_per_batch": "1 tag + 1 label per pair",
+          "monthly_requirement": "2,500,000 sets",
+          "unit_cost": "₹1.00 per set",
+          "monthly_cost": "₹2,500,000"
+        },
+        {
+          "name": "Sewing Thread (Polyester Core)",
+          "purpose": "For linking/seaming.",
+          "quantity_per_batch": "10 meters per pair",
+          "monthly_requirement": "25,000 cones",
+          "unit_cost": "₹150 per cone",
+          "monthly_cost": "₹3,750,000"
+        }
+      ],
+      "cost_estimation": {
+        "land_and_civil": {
+          "amount": 15000000,
+          "details": "Lease for 2 years advance for 20,000 sqft industrial shed."
+        },
+        "machinery_and_equipment": {
+          "amount": 65650000,
+          "details": "Sum of all machinery listed including installation."
+        },
+        "utilities_setup": {
+          "amount": 3000000,
+          "details": "Electrical transformer and panel setup."
+        },
+        "working_capital": {
+          "amount": 35000000,
+          "details": "Covers 3 months of raw material cost."
+        },
+        "miscellaneous": {
+          "amount": 4500000,
+          "details": "Business licenses and initial marketing."
+        },
+        "total_project_cost": 123150000,
+        "currency": "INR"
+      },
+      "risks": [
+        {
+          "risk": "Supply Chain Disruption",
+          "description": "Delays in raw material supply could halt production.",
+          "likelihood": "high",
+          "impact": "high",
+          "mitigation": "Establish multiple suppliers."
+        },
+        {
+          "risk": "Equipment Failure",
+          "description": "Breakdown of machinery could lead to production delays.",
+          "likelihood": "medium",
+          "impact": "high",
+          "mitigation": "Regular maintenance and spare parts inventory."
+        },
+        {
+          "risk": "Labor Shortage",
+          "description": "Difficulty in hiring skilled labor could impact production.",
+          "likelihood": "medium",
+          "impact": "medium",
+          "mitigation": "Offer competitive wages and training programs."
+        },
+        {
+          "risk": "Market Demand Fluctuation",
+          "description": "Changes in consumer preferences could affect sales.",
+          "likelihood": "medium",
+          "impact": "high",
+          "mitigation": "Conduct market research and diversify product range."
+        },
+        {
+          "risk": "Regulatory Changes",
+          "description": "New regulations could increase operational costs.",
+          "likelihood": "low",
+          "impact": "medium",
+          "mitigation": "Stay updated on regulatory changes."
+        }
+      ],
+      "key_success_factors": [
+        "Efficient production process",
+        "Quality control",
+        "Strong supplier relationships"
+      ],
+      "recommended_next_steps": [
+        {
+          "step": 1,
+          "action": "Finalize supplier contracts",
+          "timeline": "1 month",
+          "estimated_cost": "₹500,000"
+        },
+        {
+          "step": 2,
+          "action": "Purchase machinery",
+          "timeline": "2 months",
+          "estimated_cost": "₹65,650,000"
+        },
+        {
+          "step": 3,
+          "action": "Hire and train staff",
+          "timeline": "1 month",
+          "estimated_cost": "₹2,000,000"
+        },
+        {
+          "step": 4,
+          "action": "Set up production facility",
+          "timeline": "3 months",
+          "estimated_cost": "₹15,000,000"
+        }
+      ]
+    },
+    "consensus_insights": {
+      "agreed_on": "Deepseek's process flow is the most comprehensive.",
+      "major_disagreements": "Cost estimates vary significantly, with GPT being the highest.",
+      "most_reliable_section": "Machinery specifications from Deepseek.",
+      "least_reliable_section": "Cost estimates from GPT.",
+      "overall_confidence": "high",
+      "confidence_explanation": "Deepseek's detailed analysis and comprehensive data provide a strong foundation for decision-making."
+    },
+    "differences": {
+      "summary": "The models diverged significantly in their approach to process flow, machinery specifications, and cost estimation. Deepseek offered the most detailed process flow and machinery list, while GPT provided a higher cost estimate with less detail in machinery. Gemini had the lowest total project cost but lacked depth in process flow and machinery details.",
+      "process_flow_differences": {
+        "step_count": {
+          "deepseek": 10,
+          "gpt": 9,
+          "gemini": 7
+        },
+        "unique_steps": [
+          {
+            "step_name": "Washing & Dyeing (Optional)",
+            "present_in": [
+              "deepseek"
+            ],
+            "absent_in": [
+              "gpt",
+              "gemini"
+            ],
+            "significance": "high",
+            "note": "Critical for colored sock production."
+          }
+        ],
+        "sequencing_conflicts": []
+      },
+      "machinery_differences": {
+        "machine_count": {
+          "deepseek": 8,
+          "gpt": 12,
+          "gemini": 6
+        },
+        "unique_machines": [
+          {
+            "machine_name": "Electronic Sock Knitting Machine (Single Cylinder, 4-inch, 200 Needle)",
+            "present_in": [
+              "deepseek"
+            ],
+            "absent_in": [
+              "gpt",
+              "gemini"
+            ],
+            "significance": "high",
+            "note": "High capacity and efficiency."
+          }
+        ],
+        "spec_conflicts": [
+          {
+            "machine_name": "Automatic sock linking machine",
+            "field": "capacity",
+            "values": {
+              "deepseek": "120 pairs/hour",
+              "gpt": "300-360 pairs/hour",
+              "gemini": "350-400 pairs/hour"
+            },
+            "recommended_value": "350 pairs/hour",
+            "reason": "Average of the three estimates."
+          }
+        ],
+        "cost_conflicts": [
+          {
+            "machine_name": "Electronic Sock Knitting Machine",
+            "costs": {
+              "deepseek": "₹1,800,000",
+              "gpt": "₹10,500,000",
+              "gemini": "₹450,000"
+            },
+            "variance_pct": "1200%",
+            "most_realistic": "deepseek",
+            "reason": "Deepseek's cost aligns with market rates for similar machines."
+          }
+        ]
+      },
+      "cost_estimation_differences": {
+        "total_project_cost": {
+          "deepseek": 123150000,
+          "gpt": 309000000,
+          "gemini": 43419000,
+          "variance_analysis": {
+            "min_estimate": 43419000,
+            "max_estimate": 309000000,
+            "spread_pct": "600%",
+            "highest_model": "gpt",
+            "lowest_model": "gemini",
+            "spread_explanation": "GPT's estimates are significantly higher due to more extensive facility and equipment assumptions."
+          }
+        },
+        "category_conflicts": [
+          {
+            "category": "machinery_and_equipment",
+            "values": {
+              "deepseek": 65650000,
+              "gpt": 102600000,
+              "gemini": 26800000
+            },
+            "outlier_model": "gpt",
+            "outlier_reason": "GPT's machinery costs are inflated due to assumptions about imported equipment."
+          }
+        ],
+        "missing_categories": []
+      },
+      "materials_differences": {
+        "item_count": {
+          "deepseek": 7,
+          "gpt": 10,
+          "gemini": 6
+        },
+        "unique_materials": [
+          {
+            "material_name": "Dyes & Chemicals",
+            "present_in": [
+              "deepseek"
+            ],
+            "absent_in": [
+              "gpt",
+              "gemini"
+            ],
+            "importance": "high",
+            "note": "Essential for colored sock production."
+          }
+        ],
+        "quantity_conflicts": [],
+        "cost_conflicts": [
+          {
+            "material_name": "Combed Cotton Yarn",
+            "unit_costs": {
+              "deepseek": "₹300",
+              "gpt": "₹285",
+              "gemini": "₹300"
+            },
+            "most_realistic": "gpt",
+            "reason": "GPT's cost is based on a broader market analysis."
+          }
+        ]
+      },
+      "risk_differences": {
+        "risk_count": {
+          "deepseek": 5,
+          "gpt": 5,
+          "gemini": 5
+        },
+        "unique_risks": [],
+        "severity_conflicts": []
+      },
+      "methodology_differences": {
+        "analytical_approach": [
+          {
+            "aspect": "cost_approach",
+            "deepseek": "Detailed breakdown of costs with realistic estimates.",
+            "gpt": "Higher estimates based on premium equipment assumptions.",
+            "gemini": "Lower estimates with minimal detail.",
+            "best_approach": "deepseek",
+            "reason": "Most accurate and realistic cost breakdown."
+          }
+        ],
+        "assumption_conflicts": []
+      },
+      "head_to_head": [
+        {
+          "dimension": "process_flow_depth",
+          "ranking": [
+            "deepseek",
+            "gpt",
+            "gemini"
+          ],
+          "scores": {
+            "deepseek": 18,
+            "gpt": 16,
+            "gemini": 14
+          },
+          "key_differentiator": "Depth and detail of process steps."
+        },
+        {
+          "dimension": "machinery_accuracy",
+          "ranking": [
+            "deepseek",
+            "gpt",
+            "gemini"
+          ],
+          "scores": {
+            "deepseek": 20,
+            "gpt": 15,
+            "gemini": 14
+          },
+          "key_differentiator": "Comprehensiveness of machinery specifications."
+        },
+        {
+          "dimension": "cost_accuracy",
+          "ranking": [
+            "deepseek",
+            "gemini",
+            "gpt"
+          ],
+          "scores": {
+            "deepseek": 17,
+            "gemini": 13,
+            "gpt": 14
+          },
+          "key_differentiator": "Realism of cost estimates."
+        },
+        {
+          "dimension": "materials_detail",
+          "ranking": [
+            "deepseek",
+            "gpt",
+            "gemini"
+          ],
+          "scores": {
+            "deepseek": 15,
+            "gpt": 15,
+            "gemini": 14
+          },
+          "key_differentiator": "Detail in material specifications."
+        },
+        {
+          "dimension": "overall_completeness",
+          "ranking": [
+            "deepseek",
+            "gpt",
+            "gemini"
+          ],
+          "scores": {
+            "deepseek": 15,
+            "gpt": 15,
+            "gemini": 15
+          },
+          "key_differentiator": "Overall thoroughness of analysis."
+        }
+      ],
+      "pairwise_comparison": {
+        "deepseek_vs_gpt": {
+          "winner": "deepseek",
+          "margin": "large",
+          "deciding_factor": "Comprehensive process flow and cost accuracy."
+        },
+        "deepseek_vs_gemini": {
+          "winner": "deepseek",
+          "margin": "large",
+          "deciding_factor": "Detailed machinery list and cost estimation."
+        },
+        "gpt_vs_gemini": {
+          "winner": "gpt",
+          "margin": "moderate",
+          "deciding_factor": "More detailed process flow."
+        },
+        "gpt_vs_deepseek": {
+          "winner": "deepseek",
+          "margin": "large",
+          "deciding_factor": "Cost realism and process depth."
+        },
+        "gemini_vs_deepseek": {
+          "winner": "deepseek",
+          "margin": "large",
+          "deciding_factor": "Machinery accuracy and process flow detail."
+        },
+        "gemini_vs_gpt": {
+          "winner": "gpt",
+          "margin": "moderate",
+          "deciding_factor": "More comprehensive risk assessment."
+        }
+      }
+    },
+    "side_by_side_tables": {
+      "process_flow_table": {
+        "columns": [
+          "step_no",
+          "step_name",
+          "deepseek",
+          "gpt",
+          "gemini"
+        ],
+        "rows": [
+          {
+            "step_no": 1,
+            "step_name": "Yarn Procurement & Storage",
+            "deepseek": {
+              "present": true,
+              "duration": "Continuous",
+              "equipment": "Material Handling Trolleys",
+              "labor": "2 Storekeepers",
+              "quality_checkpoint": "Visual inspection"
+            },
+            "gpt": {
+              "present": true,
+              "duration": "4-8 hours per lot",
+              "equipment": "Yarn moisture meter",
+              "labor": "6 persons",
+              "quality_checkpoint": "Count and CSP check"
+            },
+            "gemini": {
+              "present": false,
+              "duration": "",
+              "equipment": "",
+              "labor": "",
+              "quality_checkpoint": ""
+            }
+          },
+          {
+            "step_no": 2,
+            "step_name": "Yarn Conditioning",
+            "deepseek": {
+              "present": true,
+              "duration": "4-6 hours per batch",
+              "equipment": "Yarn Conditioning Machine",
+              "labor": "1 Operator",
+              "quality_checkpoint": "Moisture content"
+            },
+            "gpt": {
+              "present": true,
+              "duration": "20-30 minutes per machine setup",
+              "equipment": "Yarn conditioning room",
+              "labor": "18 persons",
+              "quality_checkpoint": "Stabilization check"
+            },
+            "gemini": {
+              "present": false,
+              "duration": "",
+              "equipment": "",
+              "labor": "",
+              "quality_checkpoint": ""
+            }
+          },
+          {
+            "step_no": 3,
+            "step_name": "Knitting",
+            "deepseek": {
+              "present": true,
+              "duration": "2-3 minutes per pair",
+              "equipment": "Electronic Sock Knitting Machine",
+              "labor": "1 Operator per 10 machines",
+              "quality_checkpoint": "Defect check"
+            },
+            "gpt": {
+              "present": true,
+              "duration": "Continuous; 3 shifts",
+              "equipment": "Automatic computerized sock knitting machines",
+              "labor": "12 operators",
+              "quality_checkpoint": "Quality check"
+            },
+            "gemini": {
+              "present": true,
+              "duration": "Approx. 4-5 minutes per sock",
+              "equipment": "Computerized Sock Knitting Machine",
+              "labor": "8 Operators",
+              "quality_checkpoint": "Quality check"
+            }
+          },
+          {
+            "step_no": 4,
+            "step_name": "Linking/Toe Closing",
+            "deepseek": {
+              "present": true,
+              "duration": "30-45 seconds per pair",
+              "equipment": "Linking Machine",
+              "labor": "1 Operator per machine",
+              "quality_checkpoint": "Seam integrity"
+            },
+            "gpt": {
+              "present": true,
+              "duration": "3-5 seconds per sock",
+              "equipment": "Automatic sock linking machines",
+              "labor": "18 persons",
+              "quality_checkpoint": "Seam check"
+            },
+            "gemini": {
+              "present": true,
+              "duration": "Approx. 10-12 seconds per sock",
+              "equipment": "Automatic Sock Toe Linking Machine",
+              "labor": "4 Operators",
+              "quality_checkpoint": "Seam check"
+            }
+          },
+          {
+            "step_no": 5,
+            "step_name": "Boarding & Setting",
+            "deepseek": {
+              "present": true,
+              "duration": "5-7 minutes per batch",
+              "equipment": "Sock Boarding Machine",
+              "labor": "2 Operators",
+              "quality_checkpoint": "Shape check"
+            },
+            "gpt": {
+              "present": true,
+              "duration": "6-12 seconds per pair",
+              "equipment": "Automatic sock boarding machine",
+              "labor": "12 persons",
+              "quality_checkpoint": "Shape check"
+            },
+            "gemini": {
+              "present": true,
+              "duration": "Approx. 30-40 minutes per cycle",
+              "equipment": "Automatic Sock Boarding Machine",
+              "labor": "2 Operators",
+              "quality_checkpoint": "Shape check"
+            }
+          },
+          {
+            "step_no": 6,
+            "step_name": "Washing & Dyeing (Optional)",
+            "deepseek": {
+              "present": true,
+              "duration": "1-2 hours per batch",
+              "equipment": "Paddle Dyeing Machine",
+              "labor": "3 Operators",
+              "quality_checkpoint": "Color check"
+            },
+            "gpt": {
+              "present": false,
+              "duration": "",
+              "equipment": "",
+              "labor": "",
+              "quality_checkpoint": ""
+            },
+            "gemini": {
+              "present": false,
+              "duration": "",
+              "equipment": "",
+              "labor": "",
+              "quality_checkpoint": ""
+            }
+          },
+          {
+            "step_no": 7,
+            "step_name": "Drying",
+            "deepseek": {
+              "present": true,
+              "duration": "20-30 minutes per batch",
+              "equipment": "Tumble Dryer",
+              "labor": "1 Operator",
+              "quality_checkpoint": "Moisture check"
+            },
+            "gpt": {
+              "present": true,
+              "duration": "25-35 minutes per batch",
+              "equipment": "Industrial tumble dryer",
+              "labor": "2 persons",
+              "quality_checkpoint": "Moisture check"
+            },
+            "gemini": {
+              "present": false,
+              "duration": "",
+              "equipment": "",
+              "labor": "",
+              "quality_checkpoint": ""
+            }
+          },
+          {
+            "step_no": 8,
+            "step_name": "Pairing & Inspection",
+            "deepseek": {
+              "present": true,
+              "duration": "10-15 seconds per pair",
+              "equipment": "Inspection Tables",
+              "labor": "10 Quality Inspectors",
+              "quality_checkpoint": "Defect check"
+            },
+            "gpt": {
+              "present": true,
+              "duration": "15-20 minutes per 1,000 pairs",
+              "equipment": "Inspection tables",
+              "labor": "20 persons",
+              "quality_checkpoint": "Defect check"
+            },
+            "gemini": {
+              "present": true,
+              "duration": "Continuous flow",
+              "equipment": "Pairing and Inspection Tables",
+              "labor": "8 Checkers/Pairers",
+              "quality_checkpoint": "Defect check"
+            }
+          },
+          {
+            "step_no": 9,
+            "step_name": "Tagging & Packaging",
+            "deepseek": {
+              "present": true,
+              "duration": "10 seconds per pair",
+              "equipment": "Tagging Gun",
+              "labor": "5 Packers",
+              "quality_checkpoint": "Packaging check"
+            },
+            "gpt": {
+              "present": true,
+              "duration": "20-30 minutes per 1,000 pairs",
+              "equipment": "Tagging gun",
+              "labor": "24 persons",
+              "quality_checkpoint": "Packaging check"
+            },
+            "gemini": {
+              "present": true,
+              "duration": "Approx. 15-20 seconds per pair",
+              "equipment": "Tagging Guns",
+              "labor": "6 Packers",
+              "quality_checkpoint": "Packaging check"
+            }
+          },
+          {
+            "step_no": 10,
+            "step_name": "Finished Goods Storage & Dispatch",
+            "deepseek": {
+              "present": true,
+              "duration": "Continuous",
+              "equipment": "Pallet Jack",
+              "labor": "3 Helpers",
+              "quality_checkpoint": "Inventory check"
+            },
+            "gpt": {
+              "present": false,
+              "duration": "",
+              "equipment": "",
+              "labor": "",
+              "quality_checkpoint": ""
+            },
+            "gemini": {
+              "present": false,
+              "duration": "",
+              "equipment": "",
+              "labor": "",
+              "quality_checkpoint": ""
+            }
+          }
+        ],
+        "table_notes": "Comparison of process flow across models."
+      },
+      "machinery_table": {
+        "columns": [
+          "machine_name",
+          "deepseek",
+          "gpt",
+          "gemini"
+        ],
+        "rows": [
+          {
+            "machine_name": "Electronic Sock Knitting Machine",
+            "deepseek": {
+              "present": true,
+              "brand": "Lonati",
+              "capacity": "30-35 pairs/hour",
+              "power": "1.5 kW",
+              "estimated_cost": "₹1,800,000",
+              "quantity": 30
+            },
+            "gpt": {
+              "present": false,
+              "brand": "",
+              "capacity": "",
+              "power": "",
+              "estimated_cost": "",
+              "quantity": 0
+            },
+            "gemini": {
+              "present": false,
+              "brand": "",
+              "capacity": "",
+              "power": "",
+              "estimated_cost": "",
+              "quantity": 0
+            }
+          },
+          {
+            "machine_name": "Linking Machine",
+            "deepseek": {
+              "present": true,
+              "brand": "Jumberca",
+              "capacity": "120 pairs/hour",
+              "power": "0.37 kW",
+              "estimated_cost": "₹550,000",
+              "quantity": 8
+            },
+            "gpt": {
+              "present": true,
+              "brand": "Automatic",
+              "capacity": "300-360 pairs/hour",
+              "power": "0.55 kW",
+              "estimated_cost": "₹38,000",
+              "quantity": 12
+            },
+            "gemini": {
+              "present": true,
+              "brand": "Rosso",
+              "capacity": "350-400 pairs/hour",
+              "power": "0.75 kW",
+              "estimated_cost": "₹700,000",
+              "quantity": 4
+            }
+          },
+          {
+            "machine_name": "Sock Boarding Machine",
+            "deepseek": {
+              "present": true,
+              "brand": "Local manufacturer",
+              "capacity": "150-200 pairs/hour",
+              "power": "9 kW",
+              "estimated_cost": "₹900,000",
+              "quantity": 2
+            },
+            "gpt": {
+              "present": true,
+              "brand": "Automatic",
+              "capacity": "1200-1800 pairs/hour",
+              "power": "9 kW",
+              "estimated_cost": "₹14,500,000",
+              "quantity": 6
+            },
+            "gemini": {
+              "present": true,
+              "brand": "Automatic",
+              "capacity": "1000-1200 pairs/hour",
+              "power": "45 kW",
+              "estimated_cost": "₹4,000,000",
+              "quantity": 1
+            }
+          },
+          {
+            "machine_name": "Paddle Dyeing Machine",
+            "deepseek": {
+              "present": true,
+              "brand": "Local manufacturer",
+              "capacity": "50 kg per batch",
+              "power": "3.7 kW",
+              "estimated_cost": "₹400,000",
+              "quantity": 2
+            },
+            "gpt": {
+              "present": false,
+              "brand": "",
+              "capacity": "",
+              "power": "",
+              "estimated_cost": "",
+              "quantity": 0
+            },
+            "gemini": {
+              "present": false,
+              "brand": "",
+              "capacity": "",
+              "power": "",
+              "estimated_cost": "",
+              "quantity": 0
+            }
+          },
+          {
+            "machine_name": "Industrial Tumble Dryer",
+            "deepseek": {
+              "present": true,
+              "brand": "Local manufacturer",
+              "capacity": "50 kg",
+              "power": "6 kW",
+              "estimated_cost": "₹300,000",
+              "quantity": 2
+            },
+            "gpt": {
+              "present": true,
+              "brand": "Industrial",
+              "capacity": "100 kg",
+              "power": "15 kW",
+              "estimated_cost": "₹95,000",
+              "quantity": 2
+            },
+            "gemini": {
+              "present": false,
+              "brand": "",
+              "capacity": "",
+              "power": "",
+              "estimated_cost": "",
+              "quantity": 0
+            }
+          }
+        ],
+        "table_notes": "Comparison of machinery across models."
+      },
+      "cost_estimation_table": {
+        "columns": [
+          "cost_category",
+          "deepseek",
+          "gpt",
+          "gemini",
+          "variance_pct",
+          "recommended"
+        ],
+        "rows": [
+          {
+            "cost_category": "land_and_civil",
+            "deepseek": {
+              "amount": 15000000,
+              "notes": "Lease for 2 years."
+            },
+            "gpt": {
+              "amount": 90600000,
+              "notes": "Land and factory shed."
+            },
+            "gemini": {
+              "amount": 3120000,
+              "notes": "Rented industrial shed."
+            },
+            "variance_pct": "2000%",
+            "recommended": {
+              "amount": 15000000,
+              "source_model": "deepseek",
+              "reason": "Most realistic estimate."
+            }
+          },
+          {
+            "cost_category": "machinery_and_equipment",
+            "deepseek": {
+              "amount": 65650000,
+              "notes": "Sum of all machinery."
+            },
+            "gpt": {
+              "amount": 102600000,
+              "notes": "Higher due to imported equipment."
+            },
+            "gemini": {
+              "amount": 26800000,
+              "notes": "Lower due to fewer machines."
+            },
+            "variance_pct": "284%",
+            "recommended": {
+              "amount": 65650000,
+              "source_model": "deepseek",
+              "reason": "Most comprehensive machinery list."
+            }
+          },
+          {
+            "cost_category": "utilities_setup",
+            "deepseek": {
+              "amount": 3000000,
+              "notes": "Electrical setup."
+            },
+            "gpt": {
+              "amount": 12800000,
+              "notes": "Comprehensive utilities setup."
+            },
+            "gemini": {
+              "amount": 1200000,
+              "notes": "Basic utilities setup."
+            },
+            "variance_pct": "900%",
+            "recommended": {
+              "amount": 3000000,
+              "source_model": "deepseek",
+              "reason": "Realistic estimate."
+            }
+          },
+          {
+            "cost_category": "working_capital",
+            "deepseek": {
+              "amount": 35000000,
+              "notes": "3 months of raw material."
+            },
+            "gpt": {
+              "amount": 84800000,
+              "notes": "Higher due to extended coverage."
+            },
+            "gemini": {
+              "amount": 11499000,
+              "notes": "Lower working capital."
+            },
+            "variance_pct": "200%",
+            "recommended": {
+              "amount": 35000000,
+              "source_model": "deepseek",
+              "reason": "Most accurate estimate."
+            }
+          },
+          {
+            "cost_category": "miscellaneous",
+            "deepseek": {
+              "amount": 4500000,
+              "notes": "Business licenses."
+            },
+            "gpt": {
+              "amount": 18200000,
+              "notes": "Higher due to extensive setup."
+            },
+            "gemini": {
+              "amount": 800000,
+              "notes": "Minimal setup."
+            },
+            "variance_pct": "2250%",
+            "recommended": {
+              "amount": 4500000,
+              "source_model": "deepseek",
+              "reason": "Most realistic estimate."
+            }
+          },
+          {
+            "cost_category": "total_project_cost",
+            "deepseek": {
+              "amount": 123150000,
+              "notes": "Total project cost."
+            },
+            "gpt": {
+              "amount": 309000000,
+              "notes": "Total project cost."
+            },
+            "gemini": {
+              "amount": 43419000,
+              "notes": "Total project cost."
+            },
+            "variance_pct": "600%",
+            "recommended": {
+              "amount": 123150000,
+              "source_model": "deepseek",
+              "reason": "Most comprehensive estimate."
+            }
+          }
+        ],
+        "currency": "INR",
+        "table_notes": "Comparison of cost estimation across models."
+      },
+      "materials_table": {
+        "columns": [
+          "material_name",
+          "deepseek",
+          "gpt",
+          "gemini"
+        ],
+        "rows": [
+          {
+            "material_name": "Combed Cotton Yarn",
+            "deepseek": {
+              "present": true,
+              "qty_per_batch": "0.025 kg per pair",
+              "monthly_req": "75,000 kg",
+              "unit_cost": "₹300",
+              "monthly_cost": "₹22,500,000"
+            },
+            "gpt": {
+              "present": true,
+              "qty_per_batch": "2,400 kg per day",
+              "monthly_req": "62,400 kg",
+              "unit_cost": "₹285",
+              "monthly_cost": "₹17,784,000"
+            },
+            "gemini": {
+              "present": true,
+              "qty_per_batch": "N/A",
+              "monthly_req": "6240 kg",
+              "unit_cost": "₹300",
+              "monthly_cost": "₹1,872,000"
+            }
+          },
+          {
+            "material_name": "Nylon/Elastane Yarn",
+            "deepseek": {
+              "present": true,
+              "qty_per_batch": "0.002 kg per pair",
+              "monthly_req": "6,000 kg",
+              "unit_cost": "₹600",
+              "monthly_cost": "₹3,600,000"
+            },
+            "gpt": {
+              "present": true,
+              "qty_per_batch": "N/A",
+              "monthly_req": "2,860 kg",
+              "unit_cost": "₹690",
+              "monthly_cost": "₹19,734,000"
+            },
+            "gemini": {
+              "present": true,
+              "qty_per_batch": "N/A",
+              "monthly_req": "N/A",
+              "unit_cost": "N/A",
+              "monthly_cost": "N/A"
+            }
+          },
+          {
+            "material_name": "Dyes & Chemicals",
+            "deepseek": {
+              "present": true,
+              "qty_per_batch": "Varies per color",
+              "monthly_req": "1,000 kg",
+              "unit_cost": "₹400",
+              "monthly_cost": "₹400,000"
+            },
+            "gpt": {
+              "present": false,
+              "qty_per_batch": "",
+              "monthly_req": "",
+              "unit_cost": "",
+              "monthly_cost": ""
+            },
+            "gemini": {
+              "present": false,
+              "qty_per_batch": "",
+              "monthly_req": "",
+              "unit_cost": "",
+              "monthly_cost": ""
+            }
+          }
+        ],
+        "table_notes": "Comparison of materials across models."
+      },
+      "scores_table": {
+        "columns": [
+          "dimension",
+          "deepseek",
+          "gpt",
+          "gemini",
+          "best_model"
+        ],
+        "rows": [
+          {
+            "dimension": "process_flow_depth",
+            "deepseek": 18,
+            "gpt": 16,
+            "gemini": 14,
+            "best_model": "deepseek"
+          },
+          {
+            "dimension": "machinery_accuracy",
+            "deepseek": 20,
+            "gpt": 15,
+            "gemini": 14,
+            "best_model": "deepseek"
+          },
+          {
+            "dimension": "cost_realism",
+            "deepseek": 17,
+            "gpt": 14,
+            "gemini": 13,
+            "best_model": "deepseek"
+          },
+          {
+            "dimension": "materials_detail",
+            "deepseek": 15,
+            "gpt": 15,
+            "gemini": 14,
+            "best_model": "deepseek"
+          },
+          {
+            "dimension": "overall_completeness",
+            "deepseek": 15,
+            "gpt": 15,
+            "gemini": 15,
+            "best_model": "deepseek"
+          },
+          {
+            "dimension": "TOTAL",
+            "deepseek": 85,
+            "gpt": 75,
+            "gemini": 70,
+            "best_model": "deepseek"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+.winner-card {
+  background: #1e1e2f;
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+.winner-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.winner-name {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.badge {
+  background: gold;
+  color: black;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.score-grid {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.score-box {
+  background: #2d2d44;
+  padding: 10px;
+  border-radius: 8px;
+}
