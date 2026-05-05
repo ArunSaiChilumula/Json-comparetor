@@ -19,6 +19,7 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [uploadError, setUploadError] = useState("");
   const [autoMergeResult, setAutoMergeResult] = useState(null);
+  const [selectedModelMap, setSelectedModelMap] = useState({});
 
   const currentData = appData;
   const manualFinalJson = generateFinalJson(
@@ -27,20 +28,51 @@ const App = () => {
   );
   const finalJson = autoMergeResult || manualFinalJson;
 
+  const hasValidData = currentData && currentData.comparison && (
+    currentData.comparison.differences ||
+    currentData.comparison.combined_analysis ||
+    currentData.comparison.winner_overall
+  );
+
   const handleResetMerge = () => {
     setMergeState({});
+    setSelectedModelMap({});
     setAutoMergeResult(null);
   };
 
-  const handleMergeStateChange = (updater) => {
+  const handleManualSelect = (model, value) => {
     setAutoMergeResult(null);
-    setMergeState(updater);
+    setMergeState((prev) => ({
+      ...prev,
+      cost: value,
+    }));
+    setSelectedModelMap((prev) => ({
+      ...prev,
+      cost: model,
+    }));
   };
 
   const handleAutoMerge = () => {
     setLoading(true);
     setTimeout(() => {
       try {
+        const bestModel =
+          currentData?.comparison?.differences?.machinery_differences?.cost_conflicts?.[0]?.most_realistic ||
+          currentData?.comparison?.winner_overall;
+
+        const costObj =
+          currentData?.comparison?.differences?.cost_estimation_differences?.total_project_cost;
+
+        const bestValue = costObj?.[bestModel];
+
+        setMergeState({
+          cost: bestValue,
+        });
+
+        setSelectedModelMap({
+          cost: bestModel,
+        });
+
         const result = generateAutoMerge(currentData);
         if (result) {
           setAutoMergeResult(result);
@@ -167,22 +199,23 @@ const App = () => {
               />
 
               <section className="rounded-[2rem] border border-slate-800/70 bg-slate-900/90 p-6 shadow-xl shadow-slate-950/30">
-                {activeTab === "Summary" && (
-                  <div className="space-y-6">
-                    <div className="grid gap-6 xl:grid-cols-[1.3fr_1fr]">
-                      <WinnerSummary data={currentData} />
-                      <CombinedAnalysis data={currentData} />
-                    </div>
-                  </div>
-                )}
+                 {activeTab === "Summary" && (
+                   <div className="space-y-6">
+                     <div className="grid gap-6 xl:grid-cols-[1.3fr_1fr]">
+                       <WinnerSummary data={hasValidData ? currentData : {}} />
+                       <CombinedAnalysis data={hasValidData ? currentData : {}} />
+                     </div>
+                   </div>
+                 )}
 
-                {activeTab === "Differences" && (
-                  <DifferencesView
-                    data={currentData}
-                    mergeState={mergeState}
-                    setMergeState={handleMergeStateChange}
-                  />
-                )}
+                 {activeTab === "Differences" && (
+                    <DifferencesView
+                      data={hasValidData ? currentData : {}}
+                      mergeState={mergeState}
+                      selectedModelMap={selectedModelMap}
+                      onManualSelect={handleManualSelect}
+                    />
+                 )}
 
                 {activeTab === "Merge" && (
                   <MergePanel
@@ -190,6 +223,7 @@ const App = () => {
                     finalJson={finalJson}
                     onReset={handleResetMerge}
                     onAutoMerge={handleAutoMerge}
+                    selectedModelMap={selectedModelMap}
                   />
                 )}
               </section>

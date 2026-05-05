@@ -2,6 +2,19 @@ export const overridePaths = {
   cost: ["cost_estimation", "total_project_cost"],
 };
 
+export const formatCurrency = (value) => {
+  if (value === null || value === undefined) {
+    return "N/A";
+  }
+  if (typeof value === "number") {
+    return `₹${value.toLocaleString("en-IN")}`;
+  }
+  if (typeof value === "string") {
+    return value;
+  }
+  return String(value);
+};
+
 const toCurrencyString = (value) => {
   if (typeof value === "number") {
     return `₹${value.toLocaleString("en-IN")}`;

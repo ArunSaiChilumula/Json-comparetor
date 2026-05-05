@@ -29,9 +29,9 @@
               return;
             }
             resolve({ name: file.name, content: parsed });
-          } catch (err) {
-            reject(file.name);
-          }
+      } catch {
+        setUploadError("Failed to parse JSON file");
+      }
         };
 
         reader.onerror = () => reject(file.name);
