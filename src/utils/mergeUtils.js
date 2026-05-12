@@ -358,9 +358,6 @@ export function generateAutoMerge(data) {
   const materials = Array.isArray(combined?.materials) ? [...combined.materials] : [];
   const machineryList = Array.isArray(combined?.machinery_list) ? combined.machinery_list.map((item) => ({ ...item })) : [];
 
-  const machineryModelMap = {};
-
-  // Use most_realistic markers for machinery conflicts, fallback to best model
   machineryConflicts.forEach((conflict) => {
     const mostRealistic = conflict?.most_realistic;
     const validModels = ["deepseek", "gpt", "gemini"].filter(m => 
@@ -369,20 +366,17 @@ export function generateAutoMerge(data) {
     
     let chosenModel = mostRealistic;
     
-    // If most_realistic is not valid, use winner_overall
     if (!chosenModel || !validModels.includes(chosenModel)) {
       if (winnerOverall && validModels.includes(winnerOverall)) {
         chosenModel = winnerOverall;
       } else if (validModels.length > 0) {
-        // Fallback to first valid model
         chosenModel = validModels[0];
       } else {
-        return; // Skip if no valid models
+        return;
       }
     }
 
     const chosenCost = conflict?.costs?.[chosenModel] ?? Object.values(conflict?.costs || {})[0];
-    machineryModelMap[conflict.machine_name] = chosenModel;
 
     const conflictNameKey = normalizeName(conflict.machine_name);
     const existing = machineryList.find((machine) => normalizeName(machine?.name) === conflictNameKey);
@@ -399,7 +393,6 @@ export function generateAutoMerge(data) {
     });
   });
 
-  // Add unique steps from differences to process flow
   const uniqueSteps = differences?.process_flow_differences?.unique_steps || [];
   uniqueSteps
     .filter((step) => step?.important)
@@ -409,7 +402,6 @@ export function generateAutoMerge(data) {
       }
     });
 
-  // Add unique materials from differences
   const uniqueMaterials = differences?.materials_differences?.unique_materials || [];
   uniqueMaterials.forEach((item) => {
     const materialNameKey = normalizeName(item?.material_name);
@@ -427,7 +419,6 @@ export function generateAutoMerge(data) {
   });
 
   const explainableTakenFrom = data?.comparison?.explainable_ai?.cost_estimation?.taken_from;
-  // Use improved decision logic for cost selection
   const costModel = getBestModel(costValues, differences, winnerOverall, "cost", explainableTakenFrom);
   const selectedCost = costModel ? costValues[costModel] : undefined;
 
@@ -470,7 +461,6 @@ export function generateFinalJson(baseData, mergeState, sourceData = {}) {
   const merged = JSON.parse(JSON.stringify(baseData));
 
   if (!mergeState || Object.keys(mergeState).length === 0) {
-    // Still ensure complete structure from baseData
     const process_flow = baseData.process_flow ?? "No data available";
     const machinery_list = baseData.machinery_list ?? "No data available";
     const materials =
@@ -537,7 +527,6 @@ export function generateFinalJson(baseData, mergeState, sourceData = {}) {
     }
   });
 
-  // Handle cost when no data available
   if (!merged.cost_estimation) {
     merged.cost_estimation = {};
   }
@@ -552,7 +541,6 @@ export function generateFinalJson(baseData, mergeState, sourceData = {}) {
     materials: ai?.materials?.taken_from || null
   };
 
-  // Return complete and consistent structure
   return {
     process_flow: merged.process_flow ?? "No data available",
     machinery_list: Array.isArray(merged?.machinery_list)

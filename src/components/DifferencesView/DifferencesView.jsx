@@ -247,7 +247,6 @@ const DifferencesView = ({ data, mergeState, selectedModelMap = {}, onManualSele
                           <p className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-300">{option.label}</p>
                           <p className="mt-3 text-2xl font-semibold text-white">{formatCurrency(option.value)}</p>
                         </div>
-                        {/* {isRecommended && <span className="rounded-full bg-emerald-500/10 px-3 py-1 text-emerald-300">Best</span>} */}
                         <BestModelBadge model={option.key} winner={winner} mostRealistic={mostRealistic} />
                       </div>
                          <motion.button

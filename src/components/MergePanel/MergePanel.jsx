@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { getSelectionReason } from "../../utils/mergeUtils";
 
-const MergePanel = ({ mergeState, finalJson, onReset, onAutoMerge, selectedModelMap, data }) => {
+const MergePanel = ({ finalJson, onReset, onAutoMerge, selectedModelMap, data }) => {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
@@ -10,8 +10,8 @@ const MergePanel = ({ mergeState, finalJson, onReset, onAutoMerge, selectedModel
       await navigator.clipboard.writeText(JSON.stringify(finalJson || {}, null, 2));
       setCopied(true);
       window.setTimeout(() => setCopied(false), 1500);
-    } catch (error) {
-      console.error(error);
+    } catch {
+      setCopied(false);
     }
   };
 
@@ -102,16 +102,6 @@ const MergePanel = ({ mergeState, finalJson, onReset, onAutoMerge, selectedModel
       </div>
 
       <motion.div className="grid gap-6 lg:grid-cols-2" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.1 }}>
-        {/* <motion.div className="rounded-[1.75rem] border border-slate-800/70 bg-slate-900/90 p-5" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4, delay: 0.2 }} whileHover={{ scale: 1.01, transition: { duration: 0.2 } }}>
-          <h3 className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-400">Selected values</h3>
-          <pre className="mt-4 max-h-[300px] overflow-auto rounded-3xl bg-slate-900/80 p-4 text-sm leading-6 text-slate-200">{JSON.stringify(mergeState || {}, null, 2)}</pre>
-        </motion.div> */}
-
-        {/* <motion.div className="rounded-[1.75rem] border border-slate-800/70 bg-slate-900/90 p-5" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4, delay: 0.25 }} whileHover={{ scale: 1.01, transition: { duration: 0.2 } }}>
-          <h3 className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-400">Selected model map</h3>
-          <pre className="mt-4 max-h-[300px] overflow-auto rounded-3xl bg-slate-900/80 p-4 text-sm leading-6 text-slate-200">{JSON.stringify(selectedModelMap || {}, null, 2)}</pre>
-        </motion.div> */}
-
         <motion.div className="rounded-[1.75rem] border border-slate-800/70 bg-slate-900/90 p-5" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.3 }} whileHover={{ scale: 1.01, transition: { duration: 0.2 } }}>
           <h3 className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-400">Selection explanations</h3>
           <div className="mt-4 space-y-3">

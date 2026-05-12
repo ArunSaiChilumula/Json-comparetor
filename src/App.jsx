@@ -85,7 +85,6 @@ const App = () => {
         if (result) {
           const combined = currentData?.comparison?.combined_analysis;
 
-          // 🔥 STRICT CHECK
           if (!hasValidData(currentData)) {
             setMergeState({
               process_flow: [],
@@ -104,10 +103,9 @@ const App = () => {
             setAutoMergeResult(result);
             setActiveTab("Merge");
             setLoading(false);
-            return; // 🚨 MUST STOP HERE
+            return;
           }
 
-          // ✅ ONLY AFTER this, assign models based on actual data
           const ai = currentData?.comparison?.explainable_ai || {};
 
           setMergeState({
@@ -130,8 +128,8 @@ const App = () => {
           setAutoMergeResult(result);
           setActiveTab("Merge");
         }
-      } catch (error) {
-        console.error("Auto merge error:", error);
+      } catch {
+        setUploadError("Auto merge failed");
       }
       setLoading(false);
     }, 1200);
@@ -277,7 +275,6 @@ const App = () => {
 
                  {activeTab === "Merge" && (
                    <MergePanel
-                     mergeState={mergeState}
                      finalJson={finalJson}
                      onReset={handleResetMerge}
                      onAutoMerge={handleAutoMerge}
