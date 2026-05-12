@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import data from "./data/comparison.json";
-import { generateFinalJson, generateAutoMerge } from "./utils/mergeUtils";
+import { generateFinalJson, generateAutoMerge, hasValidData } from "./utils/mergeUtils";
 
 import UploadPanel from "./components/UploadPanel/UploadPanel";
 import WinnerSummary from "./components/WinnerSummary/WinnerSummary";
@@ -12,69 +13,120 @@ import ErrorBoundary from "./components/common/ErrorBoundary";
 const tabs = ["Summary", "Differences", "Merge"];
 
 const App = () => {
-  const [mergeState, setMergeState] = useState({});
+  const [mergeState, setMergeState] = useState({
+    cost: null,
+    process_flow: null,
+    machinery_list: null,
+    materials: null,
+  });
   const [uploadedFiles, setUploadedFiles] = useState([]);
   const [appData, setAppData] = useState(data);
   const [activeTab, setActiveTab] = useState("Summary");
   const [loading, setLoading] = useState(false);
   const [uploadError, setUploadError] = useState("");
   const [autoMergeResult, setAutoMergeResult] = useState(null);
-  const [selectedModelMap, setSelectedModelMap] = useState({});
+  const [selectedModelMap, setSelectedModelMap] = useState({
+    cost: null,
+    process_flow: null,
+    machinery: null,
+    materials: null,
+  });
 
   const currentData = appData;
   const manualFinalJson = generateFinalJson(
     currentData?.comparison?.combined_analysis || {},
     mergeState,
+    currentData,
   );
   const finalJson = autoMergeResult || manualFinalJson;
 
-  const hasValidData = currentData && currentData.comparison && (
+  const isValidDataAvailable = currentData && currentData.comparison && (
     currentData.comparison.differences ||
     currentData.comparison.combined_analysis ||
     currentData.comparison.winner_overall
   );
 
   const handleResetMerge = () => {
-    setMergeState({});
-    setSelectedModelMap({});
+    setMergeState({
+      cost: null,
+      process_flow: null,
+      machinery_list: null,
+      materials: null,
+    });
+    setSelectedModelMap({
+      cost: null,
+      process_flow: null,
+      machinery: null,
+      materials: null,
+    });
     setAutoMergeResult(null);
   };
 
-  const handleManualSelect = (model, value) => {
+  const handleManualSelect = (section, model, value) => {
     setAutoMergeResult(null);
+
     setMergeState((prev) => ({
       ...prev,
-      cost: value,
+      [section]: value,
     }));
-    setSelectedModelMap((prev) => ({
-      ...prev,
-      cost: model,
-    }));
+    setSelectedModelMap({
+      cost: section === "cost" ? model : null,
+      process_flow: section === "process_flow" ? model : null,
+      machinery: section === "machinery_list" ? model : null,
+      materials: section === "materials" ? model : null,
+    });
   };
 
   const handleAutoMerge = () => {
     setLoading(true);
     setTimeout(() => {
       try {
-        const bestModel =
-          currentData?.comparison?.differences?.machinery_differences?.cost_conflicts?.[0]?.most_realistic ||
-          currentData?.comparison?.winner_overall;
-
-        const costObj =
-          currentData?.comparison?.differences?.cost_estimation_differences?.total_project_cost;
-
-        const bestValue = costObj?.[bestModel];
-
-        setMergeState({
-          cost: bestValue,
-        });
-
-        setSelectedModelMap({
-          cost: bestModel,
-        });
-
         const result = generateAutoMerge(currentData);
         if (result) {
+          const combined = currentData?.comparison?.combined_analysis;
+
+          // 🔥 STRICT CHECK
+          if (!hasValidData(currentData)) {
+            setMergeState({
+              process_flow: [],
+              machinery_list: [],
+              materials: [],
+              cost: null
+            });
+
+              setSelectedModelMap({
+                cost: null,
+                process_flow: null,
+                machinery: null,
+                materials: null,
+              });
+
+            setAutoMergeResult(result);
+            setActiveTab("Merge");
+            setLoading(false);
+            return; // 🚨 MUST STOP HERE
+          }
+
+          // ✅ ONLY AFTER this, assign models based on actual data
+          const ai = currentData?.comparison?.explainable_ai || {};
+
+          setMergeState({
+            cost: combined?.cost_estimation?.total_project_cost || null,
+            process_flow: combined?.process_flow || [],
+            machinery_list: combined?.machinery_list || [],
+            materials:
+              Array.isArray(combined?.materials) && combined.materials.length > 0
+                ? combined.materials
+                : "No data available",
+          });
+
+          setSelectedModelMap({
+            cost: ai?.cost_estimation?.taken_from || null,
+            process_flow: ai?.process_flow?.taken_from || null,
+            machinery: ai?.machinery_list?.taken_from || null,
+            materials: ai?.materials?.taken_from || null,
+          });
+
           setAutoMergeResult(result);
           setActiveTab("Merge");
         }
@@ -99,12 +151,18 @@ const App = () => {
 
   if (loading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-slate-950">
-        <div className="loader-container">
-          <div className="spinner"></div>
-          <p className="mt-4 text-slate-300">Processing data...</p>
+      <motion.div
+        className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <div className="flex flex-col items-center gap-4">
+          <div className="w-10 h-10 border-4 border-gray-600 border-t-green-400 rounded-full animate-spin"></div>
+          <p className="text-slate-300 text-sm font-medium">Analyzing and merging data...</p>
         </div>
-      </div>
+      </motion.div>
     );
   }
 
@@ -202,30 +260,31 @@ const App = () => {
                  {activeTab === "Summary" && (
                    <div className="space-y-6">
                      <div className="grid gap-6 xl:grid-cols-[1.3fr_1fr]">
-                       <WinnerSummary data={hasValidData ? currentData : {}} />
-                       <CombinedAnalysis data={hasValidData ? currentData : {}} />
+              <WinnerSummary data={isValidDataAvailable ? currentData : {}} />
+                        <CombinedAnalysis data={isValidDataAvailable ? currentData : {}} />
                      </div>
                    </div>
                  )}
 
                  {activeTab === "Differences" && (
                     <DifferencesView
-                      data={hasValidData ? currentData : {}}
+                      data={hasValidData(currentData) ? currentData : {}}
                       mergeState={mergeState}
                       selectedModelMap={selectedModelMap}
                       onManualSelect={handleManualSelect}
                     />
                  )}
 
-                {activeTab === "Merge" && (
-                  <MergePanel
-                    mergeState={mergeState}
-                    finalJson={finalJson}
-                    onReset={handleResetMerge}
-                    onAutoMerge={handleAutoMerge}
-                    selectedModelMap={selectedModelMap}
-                  />
-                )}
+                 {activeTab === "Merge" && (
+                   <MergePanel
+                     mergeState={mergeState}
+                     finalJson={finalJson}
+                     onReset={handleResetMerge}
+                     onAutoMerge={handleAutoMerge}
+                     selectedModelMap={selectedModelMap}
+                     data={currentData}
+                   />
+                 )}
               </section>
             </main>
           </div>
